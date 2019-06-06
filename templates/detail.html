@@ -7,4 +7,18 @@
     <p>{{detail.pub_date}}</p>
     <p>{{detail.body}}</p>
 </div>
+
+
+<form  action="{% url 'comment_add' detail.id %}" method="POST">
+    {% csrf_token %}
+    내용 : <input type="text" name="body">
+    <input type="submit" value="제출">
+</form>
+
+{% for comment in detail.comments.all %}
+    {{comment.user.username}} : {{comment.body}} 
+    <a href="{% url 'comment_edit' comment.id %}">편집</a>
+    <br>
+{% endfor %}
+
 {% endblock %}
