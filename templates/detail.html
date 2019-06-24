@@ -15,9 +15,17 @@
     <input type="submit" value="제출">
 </form>
 
+<!-- templates/detail.html -->
 {% for comment in detail.comments.all %}
     {{comment.user.username}} : {{comment.body}} 
+    {% if comment.user == request.user%}
     <a href="{% url 'comment_edit' comment.id %}">편집</a>
+    <a href="javascript:{document.getElementById('delete').submit()}">삭제</a>>
+    <form id="delete" method="POST" action="{% url 'comment_delete' comment.id %}">
+        {% csrf_token %} <input type="hidden" />
+    </form>
+    <br>
+    {% endif %}
     <br>
 {% endfor %}
 
