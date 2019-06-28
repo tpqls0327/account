@@ -142,5 +142,7 @@ MEDIA_URL = '/media/'
 
 
 import dj_database_url
-db_form_env = dj_database_erl.config(conn_Max_age=500)
+# Heroku: Update database configuration from $DATABASE_URL.
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
