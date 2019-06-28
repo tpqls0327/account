@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
-# 배포형 settings
+# 개발용 settings
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -23,10 +23,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get(DJANGO_SECRET_KEY', s@od9n2#ltp#66!u#x&7_pr(v=$1%1a88lbv6g-&*bovd%9d8j'))
+SECRET_KEY = 's@od9n2#ltp#66!u#x&7_pr(v=$1%1a88lbv6g-&*bovd%9d8j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
