@@ -29,8 +29,8 @@ def create(request):
         if form.is_valid():
             blog = form.save(commit=False)
             blog.pub_date = timezone.datetime.now()
-            blog.save()                              #글을 썼으니까 저장하는 기능  
-        return redirect('/blog/' + str(blog.id)) #요청을 처리 하고 보여주는거
+            blog.save()                              # 글 저장 
+        return redirect('/blog/' + str(blog.id)) # 요청 처리 후 보여줌
     else:
         form = BlogForm()
     return render(request, 'blog/create.html', {'form' : form})
