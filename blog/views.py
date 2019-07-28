@@ -3,7 +3,7 @@ from .models import Blog, Comment
 from django.core.paginator import Paginator
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
-
+from .forms import BlogForm, CommentForm
 
 # Create your views here.
 
@@ -33,7 +33,7 @@ def create(request):
         return redirect('/blog/' + str(blog.id)) # 요청 처리 후 보여줌
     else:
         form = BlogForm()
-    return render(request, 'blog/create.html', {'form' : form})
+    return render(request, 'new.html', {'form' : form})
 
 def edit(request, blog_id):
     blog=get_object_or_404(Blog, pk=blog_id)
